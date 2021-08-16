@@ -2,7 +2,7 @@
 <div id="OnlineTestDoTest" class="OnlineTestDoTest">
 	<div  class="OnlineTestDoTestbox">
 	
-		<div class="summury-info text-center">
+		<div class="summury-info text-center" id="thoigian">
 			{LANG.time_test}: <span class="color-orange">{DATA.time} {LANG.minutes}</span> - {LANG.num_question}: <span class="color-orange">{DATA.num_question} {LANG.num_question_title}</span>
 		</div>
 		<div class="second-info">
