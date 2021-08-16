@@ -1066,9 +1066,10 @@ $(document).ready(function() {
 				{
 					$('#showQuestion').html( json['template'] ).show();
 					$('#openTest').remove();
+					// code hiển thị thời gian
+					$('<div class="summury-info text-center ">Thời gian còn lại: <div class="timer" data-seconds-left="1"></div></div>').prependTo('#OnlineTestDoTest .OnlineTestDoTestbox');
+					document.getElementById("thoigian").style.display = "none";
 					
-					// $('<div class="onlinetest-clock">Thời gian còn lại: <div class="timer" data-seconds-left="1"></div></div>').prependTo('body');	
-				
 					$('.timer').attr('data-seconds-left', json['time_test']).empty();
 					$('.timer').startTimer({
 						onComplete: function(element){
