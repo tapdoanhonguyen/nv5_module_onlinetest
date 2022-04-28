@@ -1,6 +1,6 @@
 <!-- BEGIN: main -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML"></script>
-
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="{NV_BASE_SITEURL}{NV_EDITORSDIR}/ckeditor/ckeditor.js"></script>
 <div id="question-content">
      <!-- BEGIN: error_warning -->
     <div class="alert alert-danger">
@@ -116,35 +116,7 @@ $('#form-question').on('submit', function(e){
 	var is_checked = 0;
 	var row = 1;
 	var checkcontent = 1;
-	$('input.answers').each( function( i, item )
-	{
-		
-		if( $( this ).prop('checked') )
-		{
-			++is_checked;
-		}
-		var editor = CKEDITOR.instances['answer_' + row];  
-		if( typeof(editor) === 'undefined' )
-		{
-			var answer = $('#answer_' + row).val();
-		}else 
-		{
-			var answer = CKEDITOR.instances['answer_' + row].getData();
-		}
-		if( strip_tags( answer, '<img>').length != '' )
-		{
-			++checkcontent;
-		}
-		++row;
-		
-	}); 
-	if( is_checked == 0 )
-	{
-		alert('{LANG.not_checked_answers}');
-		$('#button-submit').prop('disabled', false);
-		e.preventDefault();
-		return ;
-	}else if( checkcontent != row )
+	if( checkcontent != row )
 	{
 		alert('{LANG.not_content_answers}');
 		$('#button-submit').prop('disabled', false);
