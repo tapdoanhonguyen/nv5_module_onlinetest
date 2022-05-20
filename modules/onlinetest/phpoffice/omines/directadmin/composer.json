@@ -1,0 +1,39 @@
+{
+  "name": "omines/directadmin",
+  "type": "library",
+  "description": "PHP client library to manage DirectAdmin control panel servers.",
+  "license": "MIT",
+  "keywords": [
+    "library", "php", "directadmin", "control panel", "api", "direct admin"
+  ],
+  "homepage": "https://github.com/omines/directadmin",
+  "authors": [
+    {
+      "name": "Niels Keurentjes",
+      "email": "niels.keurentjes@omines.com",
+      "homepage": "https://www.omines.nl/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/omines/directadmin/issues"
+  },
+  "require": {
+    "php": ">=5.6.0",
+    "guzzlehttp/guzzle": "^6.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7 || ^6.0",
+    "satooshi/php-coveralls": "dev-master",
+    "friendsofphp/php-cs-fixer": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Omines\\DirectAdmin\\": "src/DirectAdmin/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
