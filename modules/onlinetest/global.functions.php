@@ -9,7 +9,7 @@
  */
 
 if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
-require_once NV_ROOTDIR . '/modules/onlinetest/phpoffice/autoload.php';
+
 function getConfig( $module )
 {
 	global $nv_Cache, $site_mods;

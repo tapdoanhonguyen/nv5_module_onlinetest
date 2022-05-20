@@ -21,29 +21,51 @@
 					<form  action="{NV_BASE_ADMINURL}index.php" method="get" id="formsearch">
 						<input type="hidden" name ="{NV_NAME_VARIABLE}"value="{MODULE_NAME}" />
 						<input type="hidden" name ="{NV_OP_VARIABLE}"value="{OP}" />
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="form-group">
-								<label class="control-label" for="input-code"><strong>`{LANG.history_code}</strong></label>
+								<label class="control-label" for="input-code"><strong>{LANG.history_code}</strong></label>
 								<input type="text" name="code" value="{DATA.code}" placeholder="{LANG.history_code}" id="input-code" class="form-control btn-sm" autocomplete="off">								 
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="form-group">
 								<label class="control-label" for="inputs-title"><strong>{LANG.history_title}</strong></label>
 								<input type="text" name="title" value="{DATA.title}" placeholder="{LANG.history_title}" id="inputs-title" class="form-control btn-sm" autocomplete="off">								 
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="form-group">
-								<label class="control-label" for="input-username"><strong>{LANG.history_username}</strong></label>
+								<label class="control-label">{LANG.history_username}
+									<label style="margin: 0">
+										<input type="radio" name="type" value="1" {TYPE_CHECKED_1} class="form-control" style="margin: 0" data-toggle="tooltip" title="{LANG.history_username_note}">
+										<i class="fa fa-user" aria-hidden="true" style="cursor:pointer"></i>
+									</label>
+									<label style="margin: 0">
+										<input type="radio" name="type" value="2" {TYPE_CHECKED_2} class="form-control"  style="margin: 0" data-toggle="tooltip" title="{LANG.history_full_name_note}">
+										<i class="fa fa-user-circle-o" aria-hidden="true" style="cursor:pointer"></i>
+									</label>
+								</label>
 								<input type="text" name="username" value="{DATA.username}" placeholder="{LANG.history_username}" id="input-username" class="form-control btn-sm" autocomplete="off">								 
 							</div>
 						</div>
- 
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label" for="inputs-group"><strong>{LANG.history_group}</strong></label>
+								
+								<select name="group" id="input-group" class="form-control select2">	
+									<option value="0" >{LANG.history_group_select}</option>
+									<!-- BEGIN: group -->
+									<option value="{GROUP.key}" {GROUP.selected}>{GROUP.name}</option>
+									<!-- END: group -->
+								</select>
+							</div>
+						</div>
+				
 						<div class="col-sm-6">
 							<span style="display: block;position: relative;padding-top: 24px;">
-							<input type="hidden" value="{TOKEN}" name="token"/>
-							<button type="submit" class="btn btn-primary btn-sm" > <i class="fa fa-search"></i> Tìm kiếm </button>
+								<input type="hidden" value="{TOKEN}" name="token"/>
+								<button type="submit" class="btn btn-primary btn-sm" > <i class="fa fa-search"></i> Tìm kiếm </button>
+								<button class="btn btn-info export_file"> <i class="fa fa-download"></i> Xuất tìm kiếm  </button>
 							</span>
 						</div> 
 					</form>
@@ -56,13 +78,15 @@
 						<thead>
 							<tr>
 								<td class="col-sm-0 text-center"><input name="check_all[]" type="checkbox" value="yes" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"> </td>
-								<td class="col-sm-3 text-center"><a {CODE_ORDER} href="{URL_CODE}"><strong>{LANG.history_code}</strong></a> </td>
-								<td class="col-sm-5 text-left"><a {TITLE_ORDER} href="{URL_TITLE}"><strong>{LANG.history_title}</strong></a> </td>
-								<td class="col-sm-4 text-center"><a {USERNAME_ORDER} href="{URL_USERNAME}"><strong>{LANG.history_username}</strong></a> </td>
-								<td class="col-sm-3 text-center"><a {SCORE_ORDER} href="{URL_SCORE}"><strong>{LANG.history_score}</strong></a> </td>
+								<td class="col-sm-2 text-center"><a {CODE_ORDER} href="{URL_CODE}"><strong>{LANG.history_code}</strong></a> </td>
+								<td class="col-sm-4 text-left"><a {TITLE_ORDER} href="{URL_TITLE}"><strong>{LANG.history_title}</strong></a> </td>
+								<td class="col-sm-3 text-center"><a {USERNAME_ORDER} href="{URL_USERNAME}"><strong>{LANG.history_username}</strong></a> </td>
+								<td class="col-sm-3 text-center"><a {FULL_NAME_ORDER} href="{URL_FULL_NAME}"><strong>{LANG.history_full_name}</strong></a> </td>
+								<td class="col-sm-3 text-center"><a {GROUP_ORDER} href="{URL_GROUP}"><strong>{LANG.history_group}</strong></a> </td>
+								<td class="col-sm-2 text-center"><a {SCORE_ORDER} href="{URL_SCORE}"><strong>{LANG.history_score}</strong></a> </td>
 								<td class="col-sm-3 text-center"><a {TEST_TIME_ORDER} href="{URL_TEST_TIME}"><strong>{LANG.history_test_time}</strong></a> </td>
-								<td class="col-sm-3 text-center"><a {IS_DELETED_ORDER} href="{URL_IS_DELETED}"><strong>{LANG.history_status}</strong></a> </td>
-								<td class="col-sm-3 text-center"> <strong>{LANG.action} </strong></td>
+								<td class="col-sm-2 text-center"><a {IS_DELETED_ORDER} href="{URL_IS_DELETED}"><strong>{LANG.history_status}</strong></a> </td>
+								<td class="col-sm-2 text-center"> <strong>{LANG.action} </strong></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -87,15 +111,24 @@
 									<span class="notexist">{LANG.history_not_exist_title} </span>
 									<!-- END: notitle -->
 								</td>
+								<!-- BEGIN: username -->
+								<td class="text-center">								
+									<a href="{LOOP.userlink}" target="_blank">{LOOP.username}</a>	 
+								</td>	
 								<td class="text-center">
-									<!-- BEGIN: username -->
-									{LOOP.username} 
-									<!-- END: username -->
-									<!-- BEGIN: nousername -->
-									<span class="notexist">{LANG.history_not_exist_username} </span>
-									<!-- END: nousername -->
-									 
-								</td>						
+									<a href="{LOOP.userlink}" target="_blank">{LOOP.full_name}</a>		 
+								</td>												
+								<!-- END: username -->								
+								<!-- BEGIN: nousername -->
+								<td class="text-center">
+									<span class="notexist">{LANG.history_not_exist_username} </span> 
+								</td>	
+								<td class="text-center"></td>												
+								<!-- END: nousername -->								
+										
+								<td class="text-center">
+									<a href="{LOOP.grouplink}" target="_blank">{LOOP.group}</a>
+								</td> 
 								<td class="text-center">
 									{LOOP.score} 
 								</td> 
@@ -115,12 +148,12 @@
 								</td> 
 								<td class="text-center">
 									<!-- BEGIN: view -->
-									<a href="{LOOP.view}" data-toggle="tooltip" class="btn btn-primary btn-sm" title="{LANG.view}"><i class="fa fa-eye"></i></a>
+									<a href="{LOOP.view}" data-toggle="tooltip" class="btn btn-primary btn-xs" title="{LANG.view}"><i class="fa fa-eye"></i></a>
 									<!-- END: view -->
 									<!-- BEGIN: noview -->
-									<a href="javascript:void(0);" data-toggle="tooltip" class="btn btn-primary btn-sm disabled" title="{LANG.view}"><i class="fa fa-eye"></i></a>
+									<a href="javascript:void(0);" data-toggle="tooltip" class="btn btn-primary btn-xs disabled" title="{LANG.view}"><i class="fa fa-eye"></i></a>
 									<!-- END: noview -->
-									<a href="javascript:void(0);" onclick="delete_history('{LOOP.history_id}', '{LOOP.token}')" data-toggle="tooltip" title="{LANG.delete}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+									<a href="javascript:void(0);" onclick="delete_history('{LOOP.history_id}', '{LOOP.token}')" data-toggle="tooltip" title="{LANG.delete}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
 								</td>
 							</tr>
 							 <!-- END: loop -->
@@ -143,6 +176,7 @@
 <script type="text/javascript" src="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/select2/i18n/{NV_LANG_INTERFACE}.js"></script>
  
 <script type="text/javascript"> 
+
 function delete_history(history_id, token) {
 	if(confirm('{LANG.confirm}')) {
 		$.ajax({
@@ -224,6 +258,32 @@ $('#button-delete').on('click', function() {
 		});
 	}	
 });
+ 
+$('.export_file').on('click', function(e) {
+ 
+	$.ajax({
+		url: script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=history&action=is_download&nocache=' + new Date().getTime(),
+		type: 'post',
+		dataType: 'json',
+		data: {token: '{TOKEN}'},
+		beforeSend: function() {
+			$('.export_file i').replaceWith('<i class="fa fa-circle-o-notch fa-spin"></i>');
+			$('.export_file').prop('disabled', true);
+		},	
+		complete: function() {
+			$('.export_file i').replaceWith('<i class="fa fa-download"></i>');
+			$('.export_file').prop('disabled', false);
+		},
+		success: function(json) {
+			if( json['error'] ) alert( json['error'] );  		
+			if( json['link'] ) window.location.href= json['link'];  		
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+	e.preventDefault(); 	
+}); 
  
 </script>
 <!-- END: main -->

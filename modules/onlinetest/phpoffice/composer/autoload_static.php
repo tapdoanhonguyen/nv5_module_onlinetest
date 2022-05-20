@@ -4,124 +4,101 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd1a5e28099005939574b60717a43e06d
+class ComposerStaticInitca2d133dbe8c18f16cd44cef6f7d8d74
 {
     public static $files = array (
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'Z' => 
         array (
-            'Zend\\Escaper\\' => 13,
+            'ZipStream\\' => 10,
         ),
         'S' => 
         array (
-            'Svg\\' => 4,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Http\\Message\\' => 17,
-            'PhpOffice\\PhpWord\\' => 18,
-            'PhpOffice\\Common\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
+            'PhpOffice\\PhpSpreadsheet\\' => 25,
         ),
-        'O' => 
+        'M' => 
         array (
-            'Omines\\DirectAdmin\\' => 19,
+            'MyCLabs\\Enum\\' => 13,
+            'Matrix\\' => 7,
         ),
-        'G' => 
+        'C' => 
         array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-        ),
-        'F' => 
-        array (
-            'FontLib\\' => 8,
-        ),
-        'D' => 
-        array (
-            'Dompdf\\' => 7,
+            'Complex\\' => 8,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Zend\\Escaper\\' => 
+        'ZipStream\\' => 
         array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-escaper/src',
+            0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
         ),
-        'Svg\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
-        'PhpOffice\\PhpWord\\' => 
+        'Psr\\Http\\Client\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'PhpOffice\\Common\\' => 
+        'PhpOffice\\PhpSpreadsheet\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phpoffice/common/src/Common',
+            0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
-        'Omines\\DirectAdmin\\' => 
+        'MyCLabs\\Enum\\' => 
         array (
-            0 => __DIR__ . '/..' . '/omines/directadmin/src/DirectAdmin',
+            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
-        'GuzzleHttp\\Psr7\\' => 
+        'Matrix\\' => 
         array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+            0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
         ),
-        'GuzzleHttp\\Promise\\' => 
+        'Complex\\' => 
         array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'FontLib\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
-        ),
-        'Dompdf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+            0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'S' => 
+        'H' => 
         array (
-            'Sabberworm\\CSS' => 
+            'HTMLPurifier' => 
             array (
-                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
     );
 
     public static $classMap = array (
-        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
-        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
-        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
-        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
-        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
-        'PclZip' => __DIR__ . '/..' . '/pclzip/pclzip/pclzip.lib.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd1a5e28099005939574b60717a43e06d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd1a5e28099005939574b60717a43e06d::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd1a5e28099005939574b60717a43e06d::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd1a5e28099005939574b60717a43e06d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitca2d133dbe8c18f16cd44cef6f7d8d74::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitca2d133dbe8c18f16cd44cef6f7d8d74::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitca2d133dbe8c18f16cd44cef6f7d8d74::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitca2d133dbe8c18f16cd44cef6f7d8d74::$classMap;
 
         }, null, ClassLoader::class);
     }
